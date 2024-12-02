@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import MovieNavbar from './components/MovieNavbar'
+import { Component } from 'react'
+import MovieDropDown from './components/MovieDropDown'
+import { Row, Container, Col } from 'react-bootstrap'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    movieTitle: 'Tre Uomini e una Gamba',
+  }
+
+  changeMovieTitle = (newMovie) => {
+    this.setState({
+      movieTitle: newMovie,
+    })
+  }
+  render() {
+    return (
+      <div className='App'>
+        <header>
+          <MovieNavbar />
+          <Container>
+            <Row className='justify-content-center'>
+              <Col md={4}>
+                <MovieDropDown
+                  movieTitle={this.state.movieTitle}
+                  changeMovieTitle={this.changeMovieTitle}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </header>
+      </div>
+    )
+  }
 }
-
-export default App;
+export default App
