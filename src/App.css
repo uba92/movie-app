@@ -1,6 +1,6 @@
 .App {
   background-color: #212121;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -36,4 +36,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.scale {
+  transform: scale(1.05);
 }
